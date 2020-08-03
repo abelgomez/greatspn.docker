@@ -2,15 +2,17 @@
 
 ## Building
 
-Copy the sources to your docker host and build the container:
+Clone or copy the sources to your docker host and build the container:
 
 ```
+$ git clone https://github.com/abelgomez/greatspn.docker.git 
+$ cd greatspn.docker
 $ ./do.sh build
 ```
 
 ## Running
 
-To run the container, binding to port 2222 on the host:
+To run the container, binding to port 2222 on the host with de default config:
 
 ```
 $ ./do.sh start
@@ -26,6 +28,7 @@ $ docker run --name greatspn -d -p 2222:22 dice/greatspn
 $ docker logs greatspn | grep 'ssh user password'
 ssh user password: O2WXqqQ1CWwXHxrLZGip
 ```
+
 ## Stopping and cleaning
 
 To stop the container, run:
