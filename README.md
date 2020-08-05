@@ -24,15 +24,19 @@ $ docker build --rm -t abelgomez/greatspn .
 
 ## Running
 
-To run the container, binding the SSH server to port 2222 on the host with the default user named `user` and using the password `secret`.
+To run the container binding the SSH server to port 2222 on the host, using the default user named `user`, and using the password `secret`, run:
 
 ```
 $ docker run --name greatspn -d -p 2222:22 -e SSH_USERPASS=secret abelgomez/greatspn
 ```
 
-It is also possible to customize the user name by setting the environment variable `SSH_USERNAME`.
+It is also possible to customize the user name by setting the environment variable `SSH_USERNAME`:
 
-To build a container with a randomly generated password.  You can obtain the password via `docker logs`:
+```
+$ docker run --name greatspn -d -p 2222:22 -e SSH_USERNAME=otheruser -e SSH_USERPASS=secret abelgomez/greatspn
+```
+
+To build a container with a randomly generated password run (you can obtain the password via `docker logs`):
 
 ```
 $ docker run --name greatspn -d -p 2222:22 abelgomez/greatspn
@@ -65,7 +69,7 @@ To start an interactive shell in the container, run:
 $ docker exec -it greatspn bash
 ```
 
-In Git for Windows it may be necessary to use the utility command winpty:
+In Git for Windows it may be necessary to use the utility command `winpty` (this does not apply if running in _command prompt_ or _PowerShell_):
 
 ```
 $ winpty docker exec -it greatspn bash
