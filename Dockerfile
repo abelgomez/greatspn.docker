@@ -55,6 +55,7 @@ RUN cd ~/GreatSPN && CFLAGS="-O2 -w" CXXFLAGS="-O2 -w" make install
 RUN dnf clean all
 
 COPY entrypoint.sh /entrypoint.sh
+RUN chmod ug+rx /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/sbin/sshd", "-D"]
