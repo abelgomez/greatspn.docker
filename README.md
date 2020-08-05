@@ -1,10 +1,18 @@
 # Docker container for GreatSPN via SSH on Fedora
 
-This Docker image is useful to run the [DICE Simulation Tool](https://github.com/dice-project/DICE-Simulation) locally
+This Docker image is useful to run the [DICE Simulation Tool](https://github.com/dice-project/DICE-Simulation) locally.
 
 It can be run in Linux, MacOS X and Linux. See https://docs.docker.com/get-docker/ for the Docker installation instructions.
 
 ## Building by your own (Optional)
+
+> **IMPORTANT:**
+>
+> **Building the image by you own is time consuming.**
+>
+> Since this image is automatically built and published [Docker Hub](https://hub.docker.com/r/abelgomez/greatspn/), **jump to the next Section if you only need an unmodified image**
+>
+> See: https://hub.docker.com/r/abelgomez/greatspn/
 
 Clone or copy the sources to your docker host and build the container:
 
@@ -70,7 +78,3 @@ $ ssh -p 2222 user@localhost
 user@localhost's password: 
 [user@9313075ae42e ~]$ 
 ```
-
-## Troubleshooting
-
-It 
