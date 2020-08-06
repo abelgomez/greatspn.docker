@@ -19,7 +19,7 @@ Clone or copy the sources to your docker host and build the container:
 ```
 $ git clone https://github.com/abelgomez/greatspn.docker.git 
 $ cd greatspn.docker
-$ docker build --rm -t abelgomez/greatspn .
+$ docker build --tag abelgomez/greatspn .
 ```
 
 ## Running
