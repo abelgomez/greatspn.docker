@@ -2,7 +2,7 @@
 
 This Docker image is useful to run the [DICE Simulation Tool](https://github.com/dice-project/DICE-Simulation) locally.
 
-It can be run in Linux, MacOS X and Linux. See https://docs.docker.com/get-docker/ for the Docker installation instructions.
+It can be run in Linux, Windows, and MacOS X. See https://docs.docker.com/get-docker/ for the Docker installation instructions.
 
 ## Building by your own (Optional)
 
@@ -10,7 +10,7 @@ It can be run in Linux, MacOS X and Linux. See https://docs.docker.com/get-docke
 >
 > **Building the image by you own is time consuming.**
 >
-> Since this image is automatically built and published [Docker Hub](https://hub.docker.com/r/abelgomez/greatspn/), **jump to the next Section if you only need an unmodified image**
+> Since this image is automatically built and published in [Docker Hub](https://hub.docker.com/r/abelgomez/greatspn/), **jump to the next Section if you only need an unmodified image**.
 >
 > See: https://hub.docker.com/r/abelgomez/greatspn/
 
@@ -27,19 +27,20 @@ $ docker build --rm -t abelgomez/greatspn .
 To run the container binding the SSH server to port 2222 on the host, using the default user named `user`, and using the password `secret`, run:
 
 ```
-$ docker run --name greatspn -d -p 2222:22 -e SSH_USERPASS=secret abelgomez/greatspn
+$ docker run --name greatspn --detach --publish 2222:22 --env SSH_USERPASS=secret abelgomez/greatspn
 ```
 
 It is also possible to customize the user name by setting the environment variable `SSH_USERNAME`:
 
 ```
-$ docker run --name greatspn -d -p 2222:22 -e SSH_USERNAME=otheruser -e SSH_USERPASS=secret abelgomez/greatspn
+$ docker run --name greatspn --detach --publish 2222:22 \
+  --env SSH_USERNAME=otheruser --env SSH_USERPASS=secret abelgomez/greatspn
 ```
 
 To build a container with a randomly generated password run (you can obtain the password via `docker logs`):
 
 ```
-$ docker run --name greatspn -d -p 2222:22 abelgomez/greatspn
+$ docker run --name greatspn --detach --publish 2222:22 abelgomez/greatspn
 $ docker logs greatspn | grep 'ssh user password'
 ssh user password: O2WXqqQ1CWwXHxrLZGip
 ```
@@ -66,13 +67,13 @@ $ docker rm greatspn
 To start an interactive shell in the container, run:
 
 ```
-$ docker exec -it greatspn bash
+$ docker exec --interactive --tty greatspn bash
 ```
 
 In Git for Windows it may be necessary to use the utility command `winpty` (this does not apply if running in _command prompt_ or _PowerShell_):
 
 ```
-$ winpty docker exec -it greatspn bash
+$ winpty docker exec --interactive --tty greatspn bash
 ```
 
 To connect to this container via SSH, run:
