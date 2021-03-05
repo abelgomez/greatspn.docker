@@ -1,4 +1,4 @@
-# Docker container for GreatSPN via SSH on Fedora
+# Docker container for [GreatSPN](https://github.com/greatspn/SOURCES) via SSH on Fedora
 
 This Docker image is useful to run the [DICE Simulation Tool](https://github.com/dice-project/DICE-Simulation) locally.
 
